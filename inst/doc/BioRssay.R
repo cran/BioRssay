@@ -7,6 +7,14 @@ knitr::opts_chunk$set(
 ## ----setup--------------------------------------------------------------------
 library(BioRssay)
 
+## ----eval=FALSE---------------------------------------------------------------
+#  #1. CRAN version
+#  install.packages("BioRssay")
+#  #2. Developmental version
+#  if (!requireNamespace("devtools", quietly = TRUE))
+#          install.packages("devtools")
+#      devtools::install_github("milesilab/BioRssay", build_vignettes = TRUE)
+
 ## -----------------------------------------------------------------------------
 data(bioassay)
 head(bioassay$assay2)
@@ -36,9 +44,10 @@ RR
 ## -----------------------------------------------------------------------------
 model.signif(dataT$tr.data)
 
-## ----fig.dim=c(8,4)-----------------------------------------------------------
+## ----echo=FALSE---------------------------------------------------------------
 oldpar<-par(no.readonly = TRUE)
 
+## ----fig.dim=c(8,4)-----------------------------------------------------------
 strains<-levels(data$strain)
 par(mfrow=c(1,2)) # set plot rows
 # plot without confidence intervals and test of validity of the model
@@ -50,6 +59,7 @@ par(mfrow=c(1,2))
 mort.plot(data,plot.conf=TRUE,test.validity=FALSE)
 mort.plot(data,plot.conf=TRUE,test.validity=FALSE,pch=NA)
 
+## ----echo=FALSE---------------------------------------------------------------
 par(oldpar)
 
 ## -----------------------------------------------------------------------------
